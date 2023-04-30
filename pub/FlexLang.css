@@ -1,0 +1,149 @@
+body {
+  background-color: lightblue;
+}
+
+.link {
+  text-align: right;
+  margin-right: 100px;
+  margin-top: 25px;
+}
+
+.link2 {
+  text-align: right;
+  margin-right: 100px;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: "black";
+  background-color: "transparent;";
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px #999;
+}
+
+.button:hover {background-color: "transparent;"}
+
+.button:active {
+  background-color: "black";
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.insertPoint {
+  margin-top: 40px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.learnedWords {
+  font-weight: 400;
+  color: "green";
+}
+
+#quizBox {
+  align-items: center;
+  border-radius: 50%;
+  width: 500px;
+  height: 300px;
+  z-index: 1;
+  perspective: 600px;
+}
+
+#quizTest {
+  margin-left: 150px;
+}
+
+.hidden {
+  background-color: "black";
+  margin-left: 150px;
+  border-radius: 50%;
+  text-align: center;
+  color: "black";
+  border: 2px solid "black";
+  width: inherit;
+  height: inherit;
+  z-index: 900;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: all .4s ease-in-out;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.hidden {
+  color: "black";
+  font-weight: 400;
+}
+
+#quizBox.flip .hidden {
+  z-index: 900;
+  transform: rotateY(180deg);
+}
+
+.show {
+  display: block;
+  margin-left: 150px;
+  border-radius: 50%;
+  align-items: center;
+  z-index: 800;
+  margin-top: -300px;
+  width: inherit;
+  height: inehrit;
+  box-sizing: border-box;
+  padding: 10px;
+  color: "black";
+  text-align: center;
+  background-color: "white";
+  border: 8px solid "black";
+  transform: rotateY(-180deg);
+  transition: all .4s ease-in-out;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+#quizBox.flip .show{
+  z-index: 1000;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+
+
+
+
+
+
+
+#quizTest {
+  border-top: 20px;
+  align-items: center;
+  border-radius: 50%;
+  width: 500px;
+  height: 300px;
+  z-index: 1;
+  perspective: 600px;
+}
+
+.hTest {
+  background-color: "black";
+  border-radius: 50%;
+  text-align: center;
+  color: "black";
+  border: 2px solid "black";
+  width: inherit;
+  height: inherit;
+  z-index: 900;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: all .4s ease-in-out;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.hTest {
+  color: "black";
+  font-weight: 400;
+}
+

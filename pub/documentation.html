@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FlexLang Library Documentation">
+    <title>FlexLang Documentation</title>
+    <link rel="stylesheet" href="/documentation.css">
+</head>
+<body>
+
+<div id="layout">
+
+    <div class="link"> <a href="/examples.html">Back to demo page</a> </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>FlexLang Library</h1>
+            <h2>Documentation</h2>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Getting Started</h2>
+            <p>
+                To use FlexLang library, first go to its <a href="https://github.com/csc309-winter-2022/js-library-vieirav2" alt="FlexLang Download">repository</a>, and download js/FlexLang.js and FlexLang.css files. Then link the library to your code by adding the following script tag to your html file:
+            </p>
+
+            <p>
+                <code>defer type="text/javascript" src='/js/FlexLang.js'</code>
+            </p>
+
+            <p>
+                After that you should create the handler object (we will call it "i" for simplicity) for the desired point, where you want to insert the translatable content. To do that, call the FlexLang constructor called <code>$$$</code> and provide at least one argument containing the DOM node where to insert the content:
+                
+            </p>
+
+            <p>
+                <code>const i = $$$(document.querySelector(".insertPoint"))</code>
+            </p>
+
+            <p>
+                In the example above, <code>insertPoint</code> is the class uniquely attributed to the desired insert point.
+                
+            </p>
+
+            <p>
+                The constructor is polymorphic and can also be called with a second argument corresponding to any custom dictionary for translation or academic definitions to be used on the subsequently inserted text. The dictionary should be provided as a JSON formatted object in which keys are the terms to be translated/defined and the values are their translations/definitions. If the second argument is not provided, FlexLang will use a default French-To-English dictionary.
+                
+            </p>
+
+            <p>
+                <code>const i = $$$(document.querySelector(".insertPoint"), customDictionary)</code>
+            </p>
+
+            <p>
+                Finally, you can add your custom content by invoking the handler object method <code>.addText</code> and providing two arguments: a custom alignment to be applied to the text and a string with text itself. You may call it once for all your content, provided that paragraphs are separated by line breaks (\n). Ponctuation will be preserved and processed accordingly (e.g. removal of commas) to allow for proper definition search. The text will be prensented initially without the Learning Section, which will be displayed after the user double-click their first word. The user can then show or hide the list of learned terms, start a quiz multiple times and check their score. The multiple choice quiz will preferentially use distracting words that the user has clicked before but will complete the 4-option list of alternatives with random words from the provided dictionary, if not enough words were previously clicked.
+                
+            </p>
+
+
+            <h2 class="content-subhead">Constructor: $$$(DOM_element_to_insert)</h2>
+
+            <p>
+                In its one-argument version, the main constructor for the FlexLang library should be called for each insertion point desired. DOM_element_to_insert is a DOM element compatible with appending text. A default French-to-English dictionary containing 63,686 entries will be used to translate subsequently added text to that insertion point. The constructor returns the handler object for that insertion point and should be saved by the developer for future calls containing the actual text to be displayed:
+            </p>
+
+            <p>
+                <code>const i = $$$(document.querySelector(DOM_node))</code>
+            </p>
+
+            <h2 class="content-subhead">Constructor: $$$(DOM_element_to_insert, custom_dictionary)</h2>
+
+            <p>
+                In its two-argument version, the main constructor for the FlexLang library should be called for each insertion point desired. DOM_element_to_insert is a DOM element compatible with appending text. custom_dictionary is a optional JSON object in which keys are the terms to be translated/defined and the values are their translations/definitions. The constructor returns the handler object for that insertion point and should be saved by the developer for future calls containing the actual text to be displayed:
+            </p>
+
+            <p>
+                <code>const i = $$$(document.querySelector("DOM_node", medical_terms_dic)</code>
+            </p>
+
+            <p>
+                In the example above, medical_terms_dic should have a proper JSON format. Duplacates are tolerated but may result in undefined behaviour. The format is should use strings as keys and values, as represented bellow:
+            </p>
+
+            <p>
+                <code>{</code>
+            </p>
+
+            <p>
+                <code>"cholecystectomy" : "surgical removal of the gallbladder", </code>
+            </p>
+            
+            <p>
+                <code>  "herniorrhaphy" : "surgical repair of a hernia" </code>
+            </p>
+
+            <p>
+                <code>}</code>
+            </p>
+
+            <h2 class="content-subhead">FlexLang base method: .addText(alignment, text) </h2>
+
+            <p>
+                The handler object saved when invoking the main constructor contains the .addText method that should be invoked with two arguments. "alignment" is a custom alignment to be applied to the text and "text" represents a string with the content to be diplayed. The inline translation will be based on this text. Paragraphs should be separated by line breaks (\n) or multiple calls to the method can be made. Ponctuation will be preserved and processed accordingly (e.g. removal of commas) to allow for proper definition search. The Learning Section, which will be displayed after the user double-click their first word, which will be translated/defined. The user can then show or hide the list of learned terms, start a quiz multiple times and check their score. The multiple choice quiz will preferentially use distracting words that the user has clicked before but will complete the 4-option list of alternatives with random words from the provided dictionary, if not enough words were previously clicked.
+                
+            </p>
+
+            <p>
+                <code>i.addText("justify", "Toronto est la ville la plus peuplée du Canada.")</code>
+            </p>
+
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
